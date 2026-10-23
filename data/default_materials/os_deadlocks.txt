@@ -1,0 +1,48 @@
+--- PAGE 1 ---
+Chapter 7: Deadlocks in Operating Systems.
+In a multiprogramming environment, several processes may compete for a finite number of resources. A process requests resources; if the resources are not available at that time, the process enters a waiting state. Sometimes, a waiting process is never again able to change state, because the resources it has requested are held by other waiting processes. This situation is called a deadlock.
+
+The Four Necessary Conditions for Deadlock (Coffman Conditions):
+A deadlock situation can arise if and only if the following four conditions hold simultaneously in a system:
+1. Mutual Exclusion: At least one resource must be held in a non-shareable mode; that is, only one process at a time can use the resource. If another process requests that resource, the requesting process must be delayed until the resource has been released.
+2. Hold and Wait: A process must be currently holding at least one resource and waiting to acquire additional resources that are currently being held by other processes.
+3. No Preemption: Resources cannot be preempted; that is, a resource can be released only voluntarily by the process holding it, after that process has completed its task.
+4. Circular Wait: A closed chain of processes exists such that each process holds at least one resource needed by the next process in the chain. That is, P0 is waiting for a resource held by P1, P1 is waiting for P2, ..., and Pn is waiting for P0.
+
+--- PAGE 2 ---
+Methods for Handling Deadlocks:
+Generally speaking, we can deal with the deadlock problem in one of three ways:
+1. We can use a protocol to prevent or avoid deadlocks, ensuring that the system will never enter a deadlocked state.
+2. We can allow the system to enter a deadlocked state, detect it, and recover.
+3. We can ignore the problem altogether and pretend that deadlocks never occur in the system. This solution is the one used by most operating systems, including Linux and Windows; it is then up to the application developer to write programs that handle deadlocks.
+
+Deadlock Prevention:
+Deadlock prevention provides a set of methods for ensuring that at least one of the four necessary conditions cannot hold:
+- Mutual Exclusion: Read-only files do not require mutual exclusion. However, some resources are intrinsically non-shareable (such as a mutex lock or printer).
+- Hold and Wait: To prevent hold-and-wait, we must guarantee that whenever a process requests a resource, it does not hold any other resources. One protocol requires each process to request and be allocated all its resources before execution begins.
+- No Preemption: If a process that is holding some resources requests another resource that cannot be immediately allocated to it, then all resources currently being held are preempted.
+- Circular Wait: Impose a total ordering of all resource types, and require that each process requests resources in an increasing order of enumeration.
+
+--- PAGE 3 ---
+Deadlock Avoidance and Banker's Algorithm:
+Deadlock avoidance requires that the operating system be given additional information in advance concerning which resources a process will request and use during its lifetime.
+A state is safe if the system can allocate resources to each process (up to its maximum) in some order and still avoid a deadlock. More formally, a system is in a safe state only if there exists a safe sequence of processes <P1, P2, ..., Pn>.
+If a system is in a safe state, there can be no deadlock. Conversely, an unsafe state is not necessarily a deadlock, but an unsafe state may lead to a deadlock.
+
+Banker's Algorithm:
+Banker's algorithm is a deadlock avoidance algorithm applicable to a system with multiple instances of each resource type.
+Data Structures:
+- Available: A vector of length m indicates the number of available resources of each type.
+- Max: An n x m matrix defines the maximum demand of each process.
+- Allocation: An n x m matrix defines the number of resources of each type currently allocated to each process.
+- Need: An n x m matrix indicates the remaining resource need of each process:
+Need[i][j] = Max[i][j] - Allocation[i][j].
+
+Safety Algorithm:
+1. Let Work and Finish be vectors of length m and n, respectively. Initialize Work = Available and Finish[i] = False for i = 0, 1, ..., n-1.
+2. Find an index i such that both:
+   a. Finish[i] == False
+   b. Need[i] <= Work
+   If no such i exists, go to step 4.
+3. Work = Work + Allocation[i], Finish[i] = True. Go to step 2.
+4. If Finish[i] == True for all i, then the system is in a safe state.

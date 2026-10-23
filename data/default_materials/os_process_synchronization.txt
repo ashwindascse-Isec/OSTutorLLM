@@ -1,0 +1,28 @@
+--- PAGE 1 ---
+Chapter 6: Process Synchronization.
+Cooperant processes can either directly share a logical address space (that is, both code and data) or be allowed to share data only through files or messages. Concurrent access to shared data may result in data inconsistency.
+A race condition occurs when several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place.
+
+The Critical-Section Problem:
+A critical section is a piece of code that accesses shared resources (such as shared variables, files, or hardware devices). When one process is executing in its critical section, no other process is allowed to execute in its critical section.
+A solution to the critical-section problem must satisfy the following three requirements:
+1. Mutual Exclusion: If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.
+2. Progress: If no process is executing in its critical section and some processes wish to enter their critical sections, then only those processes that are not executing in their remainder sections can participate in deciding which will enter its critical section next, and this selection cannot be postponed indefinitely.
+3. Bounded Waiting: There must be a bound, or limit, on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted.
+
+--- PAGE 2 ---
+Synchronization Tools:
+1. Mutex Locks:
+A mutex (mutual exclusion) lock is the simplest tool for synchronization. A process must acquire the lock before entering a critical section; it releases the lock when it exits the critical section. A mutex lock has a boolean variable whose value indicates if the lock is available or not.
+
+2. Semaphores:
+A semaphore S is an integer variable that, apart from initialization, is accessed only through two standard atomic operations: wait() and signal() (historically termed P and V).
+- wait(S):
+  while (S <= 0)
+      ; // busy wait
+  S--;
+- signal(S):
+  S++;
+
+Counting semaphores have an unrestricted domain; binary semaphores can range only between 0 and 1 (acting essentially as mutex locks).
+Classical synchronization problems include the Bounded-Buffer (Producer-Consumer) Problem, the Readers-Writers Problem, and the Dining-Philosophers Problem.

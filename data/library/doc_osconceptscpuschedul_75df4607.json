@@ -1,0 +1,47 @@
+[
+  {
+    "id": "doc_osconceptscpuschedul_75df4607_p1_c1",
+    "doc_id": "doc_osconceptscpuschedul_75df4607",
+    "doc_name": "OS Concepts: CPU Scheduling & Multiprogramming",
+    "page": 1,
+    "chunk_idx": 1,
+    "text": "Chapter 5: CPU Scheduling and Multiprogramming Concepts.\nCPU scheduling is the basis of multiprogrammed operating systems. By switching the CPU among processes, the operating system can make the computer more productive.\nIn a uniprocessor system, only one process can run at a time; any others must wait until the CPU is free and can be rescheduled. The objective of multiprogramming is to have some process running at all times, to maximize CPU utilization.\n\nA process alternates between CPU execution (CPU burst) and I/O wait (I/O burst). Process execution begins with a CPU burst, followed by an I/O burst, which is followed by another CPU burst, and so on. An I/O-bound program typically has many short CPU bursts, whereas a CPU-bound program might have a few long CPU bursts.",
+    "char_len": 780
+  },
+  {
+    "id": "doc_osconceptscpuschedul_75df4607_p2_c2",
+    "doc_id": "doc_osconceptscpuschedul_75df4607",
+    "doc_name": "OS Concepts: CPU Scheduling & Multiprogramming",
+    "page": 2,
+    "chunk_idx": 2,
+    "text": "CPU Scheduler and Preemption Criteria:\nWhenever the CPU becomes idle, the operating system must select one of the processes in the ready queue to be executed. The selection process is carried out by the CPU scheduler (also called the short-term scheduler). The scheduler selects a process from the processes in memory that are ready to execute and allocates the CPU to that process.\n\nCPU scheduling decisions may take place under four circumstances:\n1. When a process switches from the running state to the waiting state (for example, as a result of an I/O request or an invocation of wait()).\n2. When a process switches from the running state to the ready state (for example, when an interrupt occurs or when a timer expires).\n3. When a process switches from the waiting state to the ready state (for example, at completion of I/O).\n4. When a process terminates.\n\nUnder circumstances 1 and 4, there is no choice in terms of scheduling. A new process must be selected. When scheduling takes place only under circumstances 1 and 4, we say that the scheduling scheme is non-preemptive or cooperative; otherwise, it is preemptive.",
+    "char_len": 1127
+  },
+  {
+    "id": "doc_osconceptscpuschedul_75df4607_p3_c3",
+    "doc_id": "doc_osconceptscpuschedul_75df4607",
+    "doc_name": "OS Concepts: CPU Scheduling & Multiprogramming",
+    "page": 3,
+    "chunk_idx": 3,
+    "text": "Scheduling Criteria and Performance Metrics:\nDifferent CPU-scheduling algorithms have different properties, and the choice of a particular algorithm may favor one class of processes over another. The criteria include:\n1. CPU utilization: We want to keep the CPU as busy as possible. Conceptually, CPU utilization can range from 0 to 100 percent. In a real system, it should range from 40 percent (for a lightly loaded system) to 90 percent (for a heavily loaded system).\n2. Throughput: If the CPU is busy executing processes, then work is being done. One measure of work is the number of processes that are completed per time unit, called throughput.\n3. Turnaround time: From the point of view of a particular process, the important criterion is how long it takes to execute that process. The interval from the time of submission of a process to the time of completion is the turnaround time. Turnaround time is the sum of the periods spent waiting in the ready queue, executing on the CPU, and doing I/O:\nTurnaround Time = Completion Time - Arrival Time.\n4. Waiting time: The CPU-scheduling algorithm does not affect the amount of time during which a process executes or does I/O; it affects only the amount of time that a process spends waiting in the ready queue. Waiting time is the sum of the periods spent waiting in the ready queue:\nWaiting Time = Turnaround Time - Burst Time.\n5. Response time: In an interactive system, turnaround time may not be the best criterion. Often, a process can produce some output fairly early and can continue computing new results while previous results are being output to the user. Another measure is the time from the submission of a request until the first response is produced:\nResponse Time = First Start Time - Arrival Time.",
+    "char_len": 1769
+  },
+  {
+    "id": "doc_osconceptscpuschedul_75df4607_p4_c4",
+    "doc_id": "doc_osconceptscpuschedul_75df4607",
+    "doc_name": "OS Concepts: CPU Scheduling & Multiprogramming",
+    "page": 4,
+    "chunk_idx": 4,
+    "text": "Scheduling Algorithms:\n1. First-Come, First-Served (FCFS) Scheduling:\nBy far the simplest CPU-scheduling algorithm is the first-come, first-served (FCFS) algorithm. With this scheme, the process that requests the CPU first is allocated the CPU first. The implementation of the FCFS policy is easily managed with a FIFO queue.\nA major disadvantage is the convoy effect: all other processes wait for the one big process to get off the CPU. This results in lower CPU and device utilization than might be possible if shorter processes were allowed to go first.\n\n2. Shortest-Job-First (SJF) Scheduling:\nThis algorithm associates with each process the length of the process's next CPU burst. When the CPU is available, it is assigned to the process that has the smallest next CPU burst. If the next CPU bursts of two processes are the same, FCFS scheduling is used to break the tie.\nThe SJF scheduling algorithm is provably optimal, in that it gives the minimum average waiting time for a given set of processes. The preemptive version of SJF is known as Shortest-Remaining-Time-First (SRTF).",
+    "char_len": 1086
+  },
+  {
+    "id": "doc_osconceptscpuschedul_75df4607_p4_c5",
+    "doc_id": "doc_osconceptscpuschedul_75df4607",
+    "doc_name": "OS Concepts: CPU Scheduling & Multiprogramming",
+    "page": 4,
+    "chunk_idx": 5,
+    "text": "3. Round-Robin (RR) Scheduling:\nThe round-robin (RR) scheduling algorithm is designed especially for timesharing systems. It is similar to FCFS scheduling, but preemption is added to enable the system to switch between processes. A small unit of time, called a time quantum or time slice, is defined. A time quantum is generally from 10 to 100 milliseconds. The ready queue is treated as a circular queue. The CPU scheduler goes around the ready queue, allocating the CPU to each process for a time interval of up to 1 time quantum. If the time quantum is extremely large, RR behaves like FCFS. If it is extremely small, context-switch overhead dominates.",
+    "char_len": 655
+  }
+]

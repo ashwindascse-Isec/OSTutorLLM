@@ -1,0 +1,110 @@
+{
+  "flashcards": {
+    "fc_53e7907e3d": {
+      "id": "fc_53e7907e3d",
+      "front": "What are the four Coffman Conditions that must hold simultaneously for a deadlock to occur?",
+      "topic": "Deadlocks and Coffman Conditions",
+      "reviews": 1,
+      "mastered_count": 1,
+      "missed_count": 0,
+      "last_reviewed": "2026-10-23 17:35:51"
+    }
+  },
+  "quizzes": {
+    "quiz_1_35cb74dc": {
+      "id": "quiz_1_35cb74dc",
+      "question": "According to the provided text, under which specific circumstances is a CPU scheduling scheme classified as non-preemptive or cooperative?",
+      "topic": "CPU Scheduling and Criteria",
+      "attempts": 1,
+      "correct_count": 0,
+      "incorrect_count": 1,
+      "last_attempt": "2026-10-23 17:36:59"
+    },
+    "quiz_2_c196630e": {
+      "id": "quiz_2_c196630e",
+      "question": "Which of the following formulas correctly defines the Waiting Time of a process in the context of CPU scheduling criteria?",
+      "topic": "CPU Scheduling and Criteria",
+      "attempts": 1,
+      "correct_count": 1,
+      "incorrect_count": 0,
+      "last_attempt": "2026-10-23 17:36:59"
+    },
+    "quiz_3_55e9efcd": {
+      "id": "quiz_3_55e9efcd",
+      "question": "What is the primary disadvantage of the First-Come, First-Served (FCFS) scheduling algorithm, as described in the text?",
+      "topic": "CPU Scheduling and Criteria",
+      "attempts": 1,
+      "correct_count": 1,
+      "incorrect_count": 0,
+      "last_attempt": "2026-10-23 17:36:59"
+    },
+    "quiz_4_8b13b620": {
+      "id": "quiz_4_8b13b620",
+      "question": "In the context of Round-Robin (RR) scheduling, what happens if the time quantum is set to an extremely large value?",
+      "topic": "CPU Scheduling and Criteria",
+      "attempts": 1,
+      "correct_count": 1,
+      "incorrect_count": 0,
+      "last_attempt": "2026-10-23 17:36:59"
+    },
+    "quiz_5_420a74aa": {
+      "id": "quiz_5_420a74aa",
+      "question": "Which scheduling algorithm is described as 'provably optimal' in that it gives the minimum average waiting time for a given set of processes?",
+      "topic": "CPU Scheduling and Criteria",
+      "attempts": 1,
+      "correct_count": 1,
+      "incorrect_count": 0,
+      "last_attempt": "2026-10-23 17:36:59"
+    }
+  },
+  "topic_stats": {
+    "Deadlocks and Coffman Conditions": {
+      "reviews": 1,
+      "correct": 1,
+      "total": 1
+    },
+    "CPU Scheduling and Criteria": {
+      "reviews": 5,
+      "correct": 4,
+      "total": 5
+    }
+  },
+  "activity_log": [
+    {
+      "type": "flashcard",
+      "topic": "Deadlocks and Coffman Conditions",
+      "result": "mastered",
+      "timestamp": "2026-10-23 17:35:51"
+    },
+    {
+      "type": "quiz",
+      "topic": "CPU Scheduling and Criteria",
+      "result": "incorrect",
+      "timestamp": "2026-10-23 17:36:59"
+    },
+    {
+      "type": "quiz",
+      "topic": "CPU Scheduling and Criteria",
+      "result": "correct",
+      "timestamp": "2026-10-23 17:36:59"
+    },
+    {
+      "type": "quiz",
+      "topic": "CPU Scheduling and Criteria",
+      "result": "correct",
+      "timestamp": "2026-10-23 17:36:59"
+    },
+    {
+      "type": "quiz",
+      "topic": "CPU Scheduling and Criteria",
+      "result": "correct",
+      "timestamp": "2026-10-23 17:36:59"
+    },
+    {
+      "type": "quiz",
+      "topic": "CPU Scheduling and Criteria",
+      "result": "correct",
+      "timestamp": "2026-10-23 17:36:59"
+    }
+  ]
+}

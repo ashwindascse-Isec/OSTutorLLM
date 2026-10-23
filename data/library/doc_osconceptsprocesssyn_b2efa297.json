@@ -1,0 +1,29 @@
+[
+  {
+    "id": "doc_osconceptsprocesssyn_b2efa297_p1_c1",
+    "doc_id": "doc_osconceptsprocesssyn_b2efa297",
+    "doc_name": "OS Concepts: Process Synchronization and Deadlock Interplay",
+    "page": 1,
+    "chunk_idx": 1,
+    "text": "Chapter 6: Process Synchronization.\nCooperant processes can either directly share a logical address space (that is, both code and data) or be allowed to share data only through files or messages. Concurrent access to shared data may result in data inconsistency.\nA race condition occurs when several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place.",
+    "char_len": 456
+  },
+  {
+    "id": "doc_osconceptsprocesssyn_b2efa297_p1_c2",
+    "doc_id": "doc_osconceptsprocesssyn_b2efa297",
+    "doc_name": "OS Concepts: Process Synchronization and Deadlock Interplay",
+    "page": 1,
+    "chunk_idx": 2,
+    "text": "The Critical-Section Problem:\nA critical section is a piece of code that accesses shared resources (such as shared variables, files, or hardware devices). When one process is executing in its critical section, no other process is allowed to execute in its critical section.\nA solution to the critical-section problem must satisfy the following three requirements:\n1. Mutual Exclusion: If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.\n2. Progress: If no process is executing in its critical section and some processes wish to enter their critical sections, then only those processes that are not executing in their remainder sections can participate in deciding which will enter its critical section next, and this selection cannot be postponed indefinitely.\n3. Bounded Waiting: There must be a bound, or limit, on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted.",
+    "char_len": 1072
+  },
+  {
+    "id": "doc_osconceptsprocesssyn_b2efa297_p2_c3",
+    "doc_id": "doc_osconceptsprocesssyn_b2efa297",
+    "doc_name": "OS Concepts: Process Synchronization and Deadlock Interplay",
+    "page": 2,
+    "chunk_idx": 3,
+    "text": "Synchronization Tools:\n1. Mutex Locks:\nA mutex (mutual exclusion) lock is the simplest tool for synchronization. A process must acquire the lock before entering a critical section; it releases the lock when it exits the critical section. A mutex lock has a boolean variable whose value indicates if the lock is available or not.\n\n2. Semaphores:\nA semaphore S is an integer variable that, apart from initialization, is accessed only through two standard atomic operations: wait() and signal() (historically termed P and V).\n- wait(S):\n  while (S <= 0)\n      ; // busy wait\n  S--;\n- signal(S):\n  S++;\n\nCounting semaphores have an unrestricted domain; binary semaphores can range only between 0 and 1 (acting essentially as mutex locks).\nClassical synchronization problems include the Bounded-Buffer (Producer-Consumer) Problem, the Readers-Writers Problem, and the Dining-Philosophers Problem.",
+    "char_len": 891
+  }
+]

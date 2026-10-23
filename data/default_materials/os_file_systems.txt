@@ -1,0 +1,17 @@
+--- PAGE 1 ---
+Chapter 10 & 11: File Systems and Mass Storage Structure.
+The file system provides the mechanism for on-line storage and access to both data and programs of the operating system and all the users of the computer system.
+A file is an abstract data type defined by its attributes: name, identifier, type, location, size, protection, and time/date/user identification.
+
+File Allocation Methods:
+1. Contiguous Allocation: Each file occupies a set of contiguous blocks on the disk. Provides excellent read performance, but suffers from external fragmentation and difficulty in growing files.
+2. Linked Allocation: Each file is a linked list of disk blocks; the blocks may be scattered anywhere on the disk. Solves external fragmentation, but does not support efficient direct/random access.
+3. Indexed Allocation: Brings all the pointers together into one location: the index block. Supports direct access without external fragmentation, but has index block overhead for small files.
+
+--- PAGE 2 ---
+Disk Scheduling Algorithms:
+Because disk access involves physical movement of the disk head across tracks (seek time), disk scheduling algorithms attempt to minimize seek distance.
+1. FCFS (First-Come, First-Served): Service requests in arrival order. Simple, but large head movements can result.
+2. SSTF (Shortest Seek Time First): Selects the request with the minimum seek time from the current head position. May cause starvation of distant requests.
+3. SCAN (Elevator Algorithm): The disk arm starts at one end of the disk and moves toward the other end, servicing requests along the way until it reaches the end, where the direction of head movement is reversed.
+4. C-SCAN (Circular SCAN): Moves the head from one end of the disk to the other, servicing requests along the way. When it reaches the other end, however, it immediately returns to the beginning of the disk without servicing any requests on the return trip.
